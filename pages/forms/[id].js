@@ -5,7 +5,7 @@ import { Card, Button, Badge, ButtonGroup, Dropdown } from "react-bootstrap"
 import { PencilSquare, Share, ThreeDotsVertical } from 'react-bootstrap-icons'
 import { onlyAuthUserSSR } from "services/server-library"
 import SignUp from "components/pass/SignUp"
-import Form from "models/Form" // Import your Form model
+import Form from "models/forms" // Import your Form model
 
 const FormView = ({ user, form }) => {
     const [showShareModal, setShowShareModal] = useState(false)
