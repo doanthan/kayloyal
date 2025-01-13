@@ -53,7 +53,7 @@ const Footer = () => {
                     className="p-0 fw-normal text-light"
                   >
                     <i className="fi-mail me-2 align-middle opacity-70"></i>
-                    info@kaytools.com
+                    info@kayloyal.com
                   </Nav.Link>
                 </Nav.Item>
               </Nav>

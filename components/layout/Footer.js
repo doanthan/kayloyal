@@ -34,6 +34,26 @@ const Footer = () => {
                                         Contact
                                     </Nav.Link>
                                 </Nav.Item>
+                                <Nav.Item className="mb-2">
+                                    <Nav.Link
+                                        as={Link}
+                                        href="/privacy-policy"
+                                        active={false}
+                                        className="p-0 fw-normal text-light"
+                                    >
+                                        Privacy Policy
+                                    </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item className="mb-2">
+                                    <Nav.Link
+                                        as={Link}
+                                        href="/terms-of-use"
+                                        active={false}
+                                        className="p-0 fw-normal text-light"
+                                    >
+                                        Terms of Use
+                                    </Nav.Link>
+                                </Nav.Item>
                             </Nav>
                         </div>
                     </Col>
@@ -53,7 +73,7 @@ const Footer = () => {
                                         className="p-0 fw-normal text-light"
                                     >
                                         <i className="fi-mail me-2 align-middle opacity-70"></i>
-                                        info@kaytools.com
+                                        info@kayloyal.com
                                     </Nav.Link>
                                 </Nav.Item>
                             </Nav>
