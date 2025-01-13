@@ -1,0 +1,130 @@
+// Add these state variables
+const [selectedLibraryAccount, setSelectedLibraryAccount] = useState(accountDetails[0]);
+const [libraryImages, setLibraryImages] = useState([]);
+const [currentPage, setCurrentPage] = useState(1);
+const [totalPages, setTotalPages] = useState(0);
+const [isLoadingLibrary, setIsLoadingLibrary] = useState(false);
+const imagesPerPage = 10;
+
+// Add this function to fetch images from Klaviyo
+const fetchLibraryImages = async (account, page) => {
+    setIsLoadingLibrary(true);
+    try {
+        const response = await axios.get(`/api/klaviyo/images`, {
+            params: {
+                accountId: account.value,
+                page: page,
+                pageSize: imagesPerPage
+            },
+            ...getConfigToken()
+        });
+        setLibraryImages(response.data.images);
+        setTotalPages(Math.ceil(response.data.total / imagesPerPage));
+    } catch (error) {
+        console.error('Error fetching library images:', error);
+    } finally {
+        setIsLoadingLibrary(false);
+    }
+};
+
+// Add useEffect to fetch images when account or page changes
+useEffect(() => {
+    if (activeTab === 'library' && selectedLibraryAccount) {
+        fetchLibraryImages(selectedLibraryAccount, currentPage);
+    }
+}, [selectedLibraryAccount, currentPage, activeTab]);
+
+// Modified Modal with Library Tab
+<Modal show={showImageModal} onHide={() => setShowImageModal(false)} size="lg">
+    <Modal.Header closeButton>
+        <Modal.Title>Add Image</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+        <Tabs
+            activeKey={activeTab}
+            onSelect={(k) => setActiveTab(k)}
+            className="mb-3"
+        >
+            {/* ... existing Upload File and Image URL tabs ... */}
+
+            <Tab eventKey="library" title="Select from Library">
+                <Form.Group className="mb-4">
+                    <Form.Label>Select Account</Form.Label>
+                    <Select
+                        value={selectedLibraryAccount}
+                        onChange={(account) => {
+                            setSelectedLibraryAccount(account);
+                            setCurrentPage(1);
+                        }}
+                        options={accountDetails}
+                        isSearchable={true}
+                        className="mb-3"
+                    />
+                </Form.Group>
+
+                {isLoadingLibrary ? (
+                    <div className="text-center py-4">
+                        <div className="spinner-border text-primary" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                ) : (
+                    <>
+                        <div className="image-grid mb-3">
+                            {libraryImages.map((image, index) => (
+                                <div
+                                    key={index}
+                                    className="image-item"
+                                    onClick={() => setUploadedImageUrl(image.url)}
+                                >
+                                    <img
+                                        src={image.url}
+                                        alt={image.name || `Image ${index + 1}`}
+                                        className={`library-image ${uploadedImageUrl === image.url ? 'selected' : ''}`}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="d-flex justify-content-between align-items-center">
+                            <Button
+                                variant="outline-primary"
+                                disabled={currentPage === 1}
+                                onClick={() => setCurrentPage(prev => prev - 1)}
+                            >
+                                <i className="fas fa-chevron-left me-1"></i>
+                                Previous
+                            </Button>
+                            <span>
+                                Page {currentPage} of {totalPages}
+                            </span>
+                            <Button
+                                variant="outline-primary"
+                                disabled={currentPage === totalPages}
+                                onClick={() => setCurrentPage(prev => prev + 1)}
+                            >
+                                Next
+                                <i className="fas fa-chevron-right ms-1"></i>
+                            </Button>
+                        </div>
+                    </>
+                )}
+            </Tab>
+        </Tabs>
+
+        {/* ... existing Preview section ... */}
+    </Modal.Body>
+    <Modal.Footer>
+        <Button
+            variant="secondary"
+            onClick={() => {
+                setShowImageModal(false);
+                setImageUrl('');
+                setActiveTab('upload');
+                setCurrentPage(1);
+            }}
+        >
+            Close
+        </Button>
+    </Modal.Footer>
+</Modal>

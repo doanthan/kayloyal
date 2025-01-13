@@ -1,0 +1,51 @@
+{
+  "data": {
+    "type": "flow",
+    "id": "TJZ2Ex",
+    "attributes": {
+      "name": "Flow - Oct 31, 2024, 12:55 PM",
+      "status": "live",
+      "archived": false,
+      "definition": {
+        "triggers": [
+          {
+            "type": "metric",
+            "id": "WnLXLH",
+            "trigger_filter": null
+          }
+        ],
+        "profile_filter": null,
+        "actions": [
+          {
+            "id": "71281366",
+            "type": "send-email",
+            "links": {
+              "next": null
+            },
+            "data": {
+              "message": {
+                "from_email": "hello@klaviyo-demo.com",
+                "from_label": "Salesforce Commerce Cloud [[Demo]]",
+                "reply_to_email": null,
+                "cc_email": null,
+                "bcc_email": null,
+                "subject_line": "Email #1 Subject",
+                "preview_text": "",
+                "template_id": "XxHyza",
+                "smart_sending_enabled": false,
+                "transactional": false,
+                "add_tracking_params": false,
+                "custom_tracking_params": null,
+                "additional_filters": null,
+                "name": "Email #1",
+                "id": "TqtZgX"
+              },
+              "status": "live"
+            }
+          }
+        ],
+        "entry_action_id": "71281366"
+      }
+    }
+  }
+}

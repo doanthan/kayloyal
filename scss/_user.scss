@@ -1,0 +1,718 @@
+//
+// user.scss
+// Use this to write your custom SCSS
+//
+
+.flow-table {
+  font-size: 0.85rem; /* Reduce font size */
+}
+
+.flow-table th,
+.flow-table td {
+  padding: 0.5rem 0.3rem; /* Reduce padding */
+}
+
+.sidebar {
+  position: sticky;
+  top: 100px; /* Adjust this value to match the height of your header */
+}
+
+.account-content {
+  margin-top: 85px;
+}
+
+.image-upload-container {
+  position: relative;
+  width: 48px; /* Adjust based on your image size */
+  height: 48px; /* Adjust based on your image size */
+}
+
+.card-image-top-right {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the area properly */
+}
+
+.image-upload-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer; /* Ensure cursor pointer is also on the input element */
+}
+
+.slider-primary-red::-webkit-slider-thumb {
+  background-color: #1f1b2d;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.slider-primary-red::-moz-range-thumb {
+  background-color: #1f1b2d;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.slider-primary-red::-ms-thumb {
+  background-color: #1f1b2d;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.fixed-height-card .card {
+  height: 200px; // Set the card height to 300px
+  display: flex;
+  flex-direction: column;
+}
+.fixed-height-card .card-body {
+  flex: 1;
+}
+/* Add this CSS to your component's CSS file or within a <style> tag in your component */
+.html-preview-content {
+  width: 100%; /* Ensures the content does not exceed the width of the column */
+  max-height: 450px; /* Set a max-height to prevent vertical stretching */
+  overflow: auto; /* Adds scrollbars if content is larger than the container */
+  border: 1px solid #ccc; /* Optional: adds a border around the content for better visibility */
+}
+/* Optional: Reset specific styles that might be causing issues */
+.html-preview-content p,
+.html-preview-content h1,
+.html-preview-content h2,
+.html-preview-content div {
+  margin: 0;
+  padding: 0;
+}
+
+.spreadsheet-cell {
+  min-width: 100px; /* Set to desired fixed width */
+  max-width: 100px; /* Set to the same as min-width to enforce fixed width */
+  overflow: hidden; /* Optional: Prevents content from overflowing */
+}
+.spreadsheet-container .data-editor {
+  min-width: 100px;
+  max-width: 100px;
+}
+
+.widerOffcanvas {
+  width: 25% !important; /* Default Offcanvas width is 400px, so 150% of that is 600px */
+}
+
+/* Make the grid headers selectable */
+.dsg-header-row {
+  user-select: text !important;
+  cursor: text !important;
+}
+
+/* Style improvements for Excel-like appearance */
+.spreadsheet-container {
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dsg-row {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.dsg-cell {
+  border-right: 1px solid #dee2e6;
+}
+
+/* Remove default header styles that might interfere */
+.dsg-header-cell {
+  user-select: text !important;
+  cursor: text !important;
+}
+
+.image-url-input {
+  background-color: #f8f9fa;
+  cursor: text;
+}
+
+.image-url-input:hover {
+  background-color: #e9ecef;
+}
+
+.image-url-input:focus {
+  background-color: #fff;
+}
+
+.nav-tabs .nav-link {
+  color: #6c757d;
+}
+
+.nav-tabs .nav-link.active {
+  font-weight: 500;
+  color: #495057;
+}
+
+.image-preview-container {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+.image-item {
+  aspect-ratio: 1;
+  cursor: pointer;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.image-item:hover {
+  transform: scale(1.02);
+}
+
+.library-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.library-image.selected {
+  border-color: #0d6efd;
+}
+
+.image-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.image-item:hover::after {
+  opacity: 1;
+}
+
+.image-preview-container {
+  max-width: 160px; // Reduced from 200px
+}
+
+.preview-image {
+  width: 100%;
+  height: auto;
+  max-height: 160px; // Added max-height
+  object-fit: contain; // Maintains aspect ratio
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+}
+
+.remove-image-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+  z-index: 1; // Ensure button stays above image
+}
+
+.remove-image-btn:hover {
+  background-color: #c82333;
+}
+
+.modal-preview {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.preview-form {
+  transition: all 0.3s ease;
+}
+
+.preview-form .form-control:disabled {
+  background-color: #fff;
+  opacity: 0.8;
+}
+
+/* Add smooth transitions */
+.preview-form .form-control,
+.preview-form .btn {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Preview hover effects */
+.preview-form .form-control:hover {
+  border-color: var(--brand-primary);
+}
+
+.preview-form .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove modal header border and add rounded corners */
+.modal-content {
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom close button hover effect */
+.modal .btn-close:hover {
+  opacity: 1;
+}
+
+/* Smooth transitions */
+.modal.fade .modal-content {
+  transition: transform 0.2s ease-out;
+}
+
+/* Card-like modal styling */
+.modal-content {
+  border-radius: 16px !important;
+  border: none !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+  overflow: hidden;
+}
+
+.modal-dialog {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Smooth transitions */
+.modal.fade .modal-dialog {
+  transition: transform 0.2s ease-out !important;
+}
+
+.modal.show .modal-dialog {
+  transform: none;
+}
+
+/* Custom close button hover effect */
+.modal .btn-close:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  opacity: 1;
+}
+
+/* Add some depth to the modal */
+.modal-content {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.05),
+    0 8px 16px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Mobile-friendly calendar styles */
+.mobile-friendly-calendar {
+  font-size: 1.1rem !important;
+}
+
+.react-datepicker__portal {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.react-datepicker__portal .react-datepicker {
+  font-size: 1.2rem;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.react-datepicker__portal .react-datepicker__day {
+  width: 2.5rem;
+  line-height: 2.5rem;
+  margin: 0.2rem;
+  border-radius: 50%;
+}
+
+.react-datepicker__portal .react-datepicker__day-name {
+  width: 2.5rem;
+  line-height: 2.5rem;
+  margin: 0.2rem;
+}
+
+.react-datepicker__portal .react-datepicker__current-month {
+  font-size: 1.3rem;
+  padding: 0.5rem 0;
+}
+
+.react-datepicker__portal .react-datepicker__navigation {
+  top: 1rem;
+}
+
+/* Improved dropdown styles for mobile */
+.react-datepicker__month-dropdown,
+.react-datepicker__year-dropdown {
+  width: 50%;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.react-datepicker__month-option,
+.react-datepicker__year-option {
+  padding: 0.5rem;
+}
+
+/* Touch-friendly areas */
+.react-datepicker__navigation,
+.react-datepicker__day,
+.react-datepicker__month-option,
+.react-datepicker__year-option {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+  .react-datepicker__portal .react-datepicker {
+    margin: 1rem;
+    width: calc(100% - 2rem);
+    max-width: none;
+  }
+
+  .react-datepicker__portal .react-datepicker__month-container {
+    float: none;
+    width: 100%;
+  }
+}
+
+/* Logo animation on load */
+@keyframes logoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-container img {
+  animation: logoFadeIn 0.5s ease-out;
+}
+
+/* Responsive logo sizing */
+@media (max-width: 768px) {
+  .logo-container img {
+    max-width: 120px;
+  }
+}
+
+/* Card hover effect */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Badge styles */
+.badge.bg-opacity-10 {
+  font-weight: 500;
+}
+
+.badge.bg-opacity-10.bg-primary {
+  color: var(--bs-primary);
+  background-color: rgba(var(--bs-primary-rgb), 0.1) !important;
+}
+
+.badge.bg-opacity-10.bg-success {
+  color: var(--bs-success);
+  background-color: rgba(var(--bs-success-rgb), 0.1) !important;
+}
+
+/* Table styles */
+.table {
+  font-size: 0.875rem;
+}
+
+.table th {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+/* Mobile-friendly select styling */
+select.form-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
+}
+
+/* Larger touch target on mobile */
+@media (max-width: 768px) {
+  select.form-select {
+    font-size: 16px; /* Prevents iOS zoom */
+    height: 48px;
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+  }
+
+  /* Optional: Add a native-like appearance on iOS */
+  select.form-select::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f5f5f5;
+  }
+
+  select.form-select::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.modal-content {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+/* Optional: Add animation to the emoji */
+@keyframes celebrate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.modal-body .display-1 {
+  animation: celebrate 1s ease-in-out;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  padding: 2rem;
+}
+
+.wallet-card {
+  border: none;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.back-card {
+  background: rgba(255, 255, 255, 0.95);
+  margin-top: 60px;
+}
+
+.front-card {
+  background: rgba(255, 255, 255, 0.98);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  z-index: 2;
+}
+
+.wallet-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.wallet-btn:hover {
+  transform: translateY(-2px);
+}
+
+.apple-wallet {
+  background: #000;
+  color: white;
+}
+
+.google-wallet {
+  background: #4285f4;
+  color: white;
+}
+
+.qr-container {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.qr-container:hover {
+  transform: scale(1.02);
+}
+
+.pass-container {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  display: flex;
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+}
+
+.radial-gradient-overlay {
+  position: fixed; /* Changed to fixed */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    transparent 30%,
+    rgba(99, 102, 241, 0.2) 60%,
+    rgba(99, 102, 241, 0.4) 100%
+  );
+  pointer-events: none;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.cards-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center; /* Center cards container */
+}
+
+.pass-card {
+  position: absolute;
+  width: 320px;
+  height: 400px;
+  border: none;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* QR Card - Centered */
+.qr-card {
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* Logo Card - Offset to the right */
+.logo-card {
+  left: 65%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.qr-wrapper {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.pass-logo {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.wallet-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: -2rem; /* Pull buttons up closer to cards */
+}
+
+.wallet-btn {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.wallet-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 2rem;
+  }
+
+  .cards-container {
+    height: auto;
+  }
+
+  .pass-card {
+    position: relative;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .logo-card {
+    display: none;
+  }
+
+  .wallet-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    margin-top: 2rem;
+  }
+}
