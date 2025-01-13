@@ -1,7 +1,6 @@
 import { IncomingForm } from 'formidable';
 import { fileUploadCloudFlare, onlyAuthUser, uploadJsonFileCloudFlare, updateCloudFlareCache } from 'services/server-library';
 import User from 'models/user';
-import { returnUserAccountsOnly } from 'services/server-library';
 import axios from 'axios';
 
 export const config = {
@@ -59,7 +58,6 @@ export default async function handler(req, res) {
             const updateUrl = await uploadJsonFileCloudFlare(updatedJSON, uid[0])
             await updateCloudFlareCache(`https://cdn.kaypush.com/${updateUrl}`)
 
-            const response = await returnUserAccountsOnly(result)
             res.status(200).json({ imageUrl, accounts: response.accounts });
         } catch (error) {
             console.log(error.message)

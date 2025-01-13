@@ -1,5 +1,5 @@
 import User from "models/user"
-import { onlyAuthUser, returnUserAccountsOnly } from "services/server-library";
+import { onlyAuthUser } from "services/server-library";
 import connect from "services/db";
 import axios from "axios";
 import { createClientEvent, getMetricId, createTestFlow, createUniversalContent, createTemplate, getKlaviyoAccount, fetchMetrics } from 'services/klaviyoAPI'
@@ -48,7 +48,6 @@ export default async function handler(req, res) {
                 await updateKlaviyoAuth(user, name, pkKey, null, klaviyoPublic, default_sender_name, default_sender_email, metricResults, testUniversalContentId, testMetricId, templateId)
 
                 // Return the updated user accounts
-                const filteredAccounts = await returnUserAccountsOnly(user);
                 res.status(200).json({ success: true, accounts: filteredAccounts.accounts });
 
 
@@ -119,7 +118,6 @@ export default async function handler(req, res) {
 
             await user.save();
 
-            const filteredAccounts = await returnUserAccountsOnly(user)
             return res.status(200).json({ accounts: filteredAccounts.accounts, message: 'Account updated successfully' });
         } catch (error) {
             console.log(error.message)
@@ -153,7 +151,6 @@ export default async function handler(req, res) {
 
             // Get the updated user data
             const updatedUser = await User.findById(req.user.id);
-            const filteredAccounts = await returnUserAccountsOnly(updatedUser);
 
             return res.status(200).json({
                 success: true,

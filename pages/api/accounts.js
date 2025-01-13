@@ -1,5 +1,5 @@
 import User from "models/user"
-import { onlyAuthUser, returnUserAccountsOnly } from "services/server-library";
+import { onlyAuthUser } from "services/server-library";
 import connect from "services/db";
 export default async function handler(req, res) {
 
